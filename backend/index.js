@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import usersRouter from "./routes/users.routes.js";
 import categoriesRouter from "./routes/categories.routes.js";
 import promptsRouter from "./routes/prompts.routes.js";
+import adminRouter from "./routes/admin.routes.js";
 
 dotenv.config();
 
@@ -20,6 +21,7 @@ app.get("/health", (req, res) => {
 app.use("/users", usersRouter);
 app.use("/categories", categoriesRouter);
 app.use("/prompts", promptsRouter);
+app.use("/admin", adminRouter);
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
