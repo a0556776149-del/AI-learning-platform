@@ -108,7 +108,8 @@ Frontend runs on: `http://localhost:5173`
 | Method | Endpoint | Description |
 |--------|----------|-------------|
 | GET | /health | Health check |
-| POST | /users | Create a new user |
+| POST | /users | Register a new user |
+| POST | /users/login | Login with phone number |
 | GET | /users/:id | Get user by ID |
 | GET | /categories | Get all categories |
 | GET | /categories/:id/subcategories | Get subcategories |
@@ -120,11 +121,26 @@ Frontend runs on: `http://localhost:5173`
 
 ---
 
+## Available Categories
+
+| Category | Sub-categories |
+|----------|----------------|
+| Science | Space, Biology, Physics |
+| History | World War II, Ancient Egypt, The Renaissance |
+| Technology | Artificial Intelligence, Web Development, Cybersecurity |
+| Programming Languages | Python, JavaScript, Java, C++, TypeScript, Go, Rust, SQL |
+| Languages | English, Spanish, French, Hebrew, Arabic, German, Italian, Japanese |
+| Mathematics | Algebra, Geometry, Statistics, Calculus |
+
+---
+
 ## Assumptions
 
 - One admin exists, identified by a secret password stored in `.env`
 - Users are identified by phone number (unique)
-- AI responses are generated using Google Gemini 1.5 Flash
+- Returning users can login with their phone number
+- AI responses are generated using Google Gemini 2.0 Flash
+- AI prompt includes category and sub-category context for focused lessons
 
 ---
 
@@ -133,3 +149,5 @@ Frontend runs on: `http://localhost:5173`
 - JWT-based admin authentication
 - Swagger / OpenAPI documentation
 - TypeScript in frontend
+- User login (returning users)
+- Dark modern UI with glassmorphism design
