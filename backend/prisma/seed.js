@@ -19,6 +19,24 @@ async function main() {
     create: { name: "Technology" },
   });
 
+  const programming = await prisma.category.upsert({
+    where: { name: "Programming Languages" },
+    update: {},
+    create: { name: "Programming Languages" },
+  });
+
+  const languages = await prisma.category.upsert({
+    where: { name: "Languages" },
+    update: {},
+    create: { name: "Languages" },
+  });
+
+  const mathematics = await prisma.category.upsert({
+    where: { name: "Mathematics" },
+    update: {},
+    create: { name: "Mathematics" },
+  });
+
   await prisma.subCategory.createMany({
     data: [
       { name: "Space", categoryId: science.id },
@@ -30,6 +48,26 @@ async function main() {
       { name: "Artificial Intelligence", categoryId: technology.id },
       { name: "Web Development", categoryId: technology.id },
       { name: "Cybersecurity", categoryId: technology.id },
+      { name: "Python", categoryId: programming.id },
+      { name: "JavaScript", categoryId: programming.id },
+      { name: "Java", categoryId: programming.id },
+      { name: "C++", categoryId: programming.id },
+      { name: "TypeScript", categoryId: programming.id },
+      { name: "Go", categoryId: programming.id },
+      { name: "Rust", categoryId: programming.id },
+      { name: "SQL", categoryId: programming.id },
+      { name: "English", categoryId: languages.id },
+      { name: "Spanish", categoryId: languages.id },
+      { name: "French", categoryId: languages.id },
+      { name: "Hebrew", categoryId: languages.id },
+      { name: "Arabic", categoryId: languages.id },
+      { name: "German", categoryId: languages.id },
+      { name: "Italian", categoryId: languages.id },
+      { name: "Japanese", categoryId: languages.id },
+      { name: "Algebra", categoryId: mathematics.id },
+      { name: "Geometry", categoryId: mathematics.id },
+      { name: "Statistics", categoryId: mathematics.id },
+      { name: "Calculus", categoryId: mathematics.id },
     ],
     skipDuplicates: true,
   });
