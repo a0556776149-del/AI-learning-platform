@@ -14,10 +14,6 @@ export default function AdminDashboardPage() {
   const token = localStorage.getItem("adminToken") ?? "";
 
   useEffect(() => {
-    if (!token) {
-      navigate("/admin/login");
-      return;
-    }
     getAllUsers(token)
       .then(setUsers)
       .finally(() => setLoading(false));
