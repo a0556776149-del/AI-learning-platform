@@ -1,6 +1,13 @@
 import { Router } from "express";
 import { createPrompt, getPromptsByUser } from "../controllers/prompts.controller.js";
 import { validateCreatePrompt } from "../middleware/validate.js";
+import rateLimit from "express-rate-limit";
+
+const promptLimiter = rateLimit({
+  windowMs: 60 * 1000,
+  max: 5,
+  message: { error: "Too many requests. Please wait a minute before trying again." },
+});
 
 const router = Router();
 
@@ -32,7 +39,7 @@ const router = Router();
  *       400:
  *         description: Missing required fields
  */
-router.post("/", validateCreatePrompt, createPrompt);
+router.post("/", promptLimiter, validateCreatePrompt, createPrompt);
 
 /**
  * @swagger
