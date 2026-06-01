@@ -6,6 +6,8 @@ import categoriesRouter from "./routes/categories.routes.js";
 import promptsRouter from "./routes/prompts.routes.js";
 import adminRouter from "./routes/admin.routes.js";
 import { errorHandler } from "./middleware/errorHandler.js";
+import swaggerUi from "swagger-ui-express";
+import { swaggerSpec } from "./config/swagger.js";
 
 dotenv.config();
 
@@ -18,6 +20,8 @@ app.use(express.json());
 app.get("/health", (req, res) => {
   res.json({ status: "ok" });
 });
+
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.use("/users", usersRouter);
 app.use("/categories", categoriesRouter);
