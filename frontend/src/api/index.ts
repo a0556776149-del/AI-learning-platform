@@ -13,6 +13,9 @@ export const createUser = (name: string, phone: string): Promise<User> =>
 export const getUserById = (id: number): Promise<User> =>
   api.get<User>(`/users/${id}`).then((res: AxiosResponse<User>) => res.data);
 
+export const loginUser = (phone: string): Promise<User> =>
+  api.post<User>("/users/login", { phone }).then((res: AxiosResponse<User>) => res.data);
+
 // Categories
 export const getCategories = (): Promise<Category[]> =>
   api.get<Category[]>("/categories").then((res: AxiosResponse<Category[]>) => res.data);

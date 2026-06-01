@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { createUser, getUserById } from "../controllers/users.controller.js";
+import { createUser, getUserById, loginUser } from "../controllers/users.controller.js";
 import { validateCreateUser } from "../middleware/validate.js";
 
 const router = Router();
@@ -47,5 +47,6 @@ router.post("/", validateCreateUser, createUser);
  *         description: User found
  */
 router.get("/:id", getUserById);
+router.post("/login", loginUser);
 
 export default router;

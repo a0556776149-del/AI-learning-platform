@@ -11,3 +11,9 @@ export const getUserByIdService = async (id) => {
     where: { id },
   });
 };
+
+export const getUserByPhoneService = async (phone) => {
+  return await prisma.user.findUnique({
+    where: { phone },
+  });
+};

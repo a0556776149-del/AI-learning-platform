@@ -1,36 +1,48 @@
 .history-container {
-  max-width: 700px;
-  margin: 40px auto;
-  padding: 24px;
+  max-width: 750px;
+  margin: 0 auto;
+  padding: 40px 24px;
 }
 
 .history-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 32px;
+  margin-bottom: 36px;
+}
+
+.history-header h1 {
+  font-size: 26px;
+  font-weight: 700;
+  color: #fff;
 }
 
 .header-actions {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
 }
 
 .nav-btn {
-  padding: 8px 16px;
-  background-color: #4f46e5;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+  padding: 9px 20px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #e2e8f0;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.nav-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
 }
 
 .empty-message {
   text-align: center;
-  color: #888;
+  color: #64748b;
   font-size: 18px;
-  margin-top: 40px;
+  margin-top: 60px;
 }
 
 .prompts-list {
@@ -40,51 +52,60 @@
 }
 
 .prompt-card {
-  background: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(20px);
+  padding: 24px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
 .prompt-meta {
   display: flex;
   gap: 8px;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .category-badge {
-  background: #4f46e5;
-  color: white;
-  padding: 4px 10px;
+  background: rgba(99, 102, 241, 0.3);
+  color: #a5b4fc;
+  padding: 4px 12px;
   border-radius: 20px;
   font-size: 12px;
+  font-weight: 500;
+  border: 1px solid rgba(99, 102, 241, 0.4);
 }
 
 .subcategory-badge {
-  background: #7c3aed;
-  color: white;
-  padding: 4px 10px;
+  background: rgba(139, 92, 246, 0.3);
+  color: #c4b5fd;
+  padding: 4px 12px;
   border-radius: 20px;
   font-size: 12px;
+  font-weight: 500;
+  border: 1px solid rgba(139, 92, 246, 0.4);
 }
 
 .date {
-  color: #888;
+  color: #64748b;
   font-size: 12px;
   margin-left: auto;
 }
 
 .prompt-question {
-  margin-bottom: 12px;
-  color: #333;
+  margin-bottom: 14px;
+  color: #e2e8f0;
+  font-weight: 500;
 }
 
 .prompt-response {
-  color: #555;
-  line-height: 1.6;
-  background: #f0f4ff;
-  padding: 12px;
-  border-radius: 4px;
-  border-left: 3px solid #4f46e5;
+  color: #cbd5e1;
+  line-height: 1.8;
+  background: rgba(99, 102, 241, 0.08);
+  padding: 16px;
+  border-radius: 10px;
+  border-left: 3px solid #6366f1;
+  white-space: pre-wrap;
 }

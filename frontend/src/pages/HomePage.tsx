@@ -51,7 +51,10 @@ export default function HomePage() {
       <div className="home-header">
         <h1>AI Learning Platform</h1>
         <div className="header-actions">
-          <span>Hello, {userName}</span>
+          <div className="greeting">
+            <span className="greeting-hello">Hello:</span>
+            <span className="greeting-name">{userName}</span>
+          </div>
           <button onClick={() => navigate("/history")} className="nav-btn">My History</button>
           <button onClick={() => navigate("/admin/login")} className="nav-btn">Admin</button>
         </div>

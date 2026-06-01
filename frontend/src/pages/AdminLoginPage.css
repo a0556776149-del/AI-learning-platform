@@ -1,55 +1,97 @@
 .admin-login-container {
   max-width: 400px;
   margin: 80px auto;
-  padding: 24px;
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  padding: 36px;
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
 .admin-login-container h1 {
   text-align: center;
-  color: #333;
-  margin-bottom: 24px;
+  color: #fff;
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 28px;
 }
 
 .admin-login-form .form-group {
-  margin-bottom: 16px;
+  margin-bottom: 18px;
 }
 
 .admin-login-form label {
   display: block;
-  margin-bottom: 4px;
-  font-weight: bold;
-  color: #444;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #a5b4fc;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .admin-login-form input {
   width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 16px;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  font-size: 15px;
+  color: #e2e8f0;
   box-sizing: border-box;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.admin-login-form input:focus {
+  border-color: #818cf8;
 }
 
 .error-message {
-  color: red;
+  color: #f87171;
   margin-bottom: 12px;
+  font-size: 14px;
 }
 
 .submit-btn {
   width: 100%;
-  padding: 12px;
-  background-color: #dc2626;
+  padding: 13px;
+  background: linear-gradient(135deg, #7c3aed, #3b82f6);
   color: white;
   border: none;
-  border-radius: 4px;
-  font-size: 16px;
-  cursor: pointer;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(79, 70, 229, 0.5);
+}
+
+.submit-btn:hover {
+  background: linear-gradient(135deg, #9333ea, #60a5fa);
+  box-shadow: 0 6px 22px rgba(79, 70, 229, 0.7);
+  transform: translateY(-1px);
 }
 
 .submit-btn:disabled {
-  background-color: #f87171;
+  background: rgba(79, 70, 229, 0.3);
+  box-shadow: none;
   cursor: not-allowed;
+  transform: none;
+}
+
+.back-btn {
+  width: 100%;
+  padding: 13px;
+  margin-top: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  color: #94a3b8;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.back-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #e2e8f0;
 }

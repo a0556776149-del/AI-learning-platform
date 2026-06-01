@@ -42,6 +42,9 @@ export default function AdminLoginPage() {
         <button type="submit" disabled={loading} className="submit-btn">
           {loading ? "Logging in..." : "Login"}
         </button>
+        <button type="button" onClick={() => navigate("/home")} className="back-btn">
+          Back to Home
+        </button>
       </form>
     </div>
   );
