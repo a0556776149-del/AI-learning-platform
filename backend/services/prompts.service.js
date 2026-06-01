@@ -3,10 +3,15 @@ import { prisma } from "../lib/prisma.js";
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
 export const createPromptService = async (userId, categoryId, subCategoryId, prompt) => {
-  const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
+  const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+
+  const [category, subCategory] = await Promise.all([
+    prisma.category.findUnique({ where: { id: categoryId } }),
+    prisma.subCategory.findUnique({ where: { id: subCategoryId } }),
+  ]);
 
   const result = await model.generateContent(
-    `You are a helpful learning assistant. Provide clear, structured lessons based on the user's prompt.\n\n${prompt}`
+    `You are a helpful learning assistant. The user is studying "${category?.name}" specifically "${subCategory?.name}". Provide a clear, structured lesson based on the user's prompt.\n\nUser prompt: ${prompt}`
   );
 
   const response = result.response.text();
