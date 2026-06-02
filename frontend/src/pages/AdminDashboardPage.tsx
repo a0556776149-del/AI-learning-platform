@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { getAllUsers, getUserPrompts } from "../api";
 import type { User, Prompt } from "../types";
+import ReactMarkdown from "react-markdown";
 import "./AdminDashboardPage.css";
 
 export default function AdminDashboardPage() {
@@ -69,7 +70,10 @@ export default function AdminDashboardPage() {
                     <span className="date">{new Date(prompt.createdAt).toLocaleDateString()}</span>
                   </div>
                   <div className="prompt-question"><strong>Q:</strong> {prompt.prompt}</div>
-                  <div className="prompt-response"><strong>AI:</strong> {prompt.response}</div>
+                  <div className="prompt-response">
+                    <strong>AI:</strong>
+                    <ReactMarkdown>{prompt.response}</ReactMarkdown>
+                  </div>
                 </div>
               ))}
             </>

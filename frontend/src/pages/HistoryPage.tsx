@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { getPromptHistory } from "../api";
 import type { Prompt } from "../types";
+import ReactMarkdown from "react-markdown";
 import "./HistoryPage.css";
 
 export default function HistoryPage() {
@@ -46,7 +47,8 @@ export default function HistoryPage() {
               <strong>Q:</strong> {prompt.prompt}
             </div>
             <div className="prompt-response">
-              <strong>AI:</strong> {prompt.response}
+              <strong>AI:</strong>
+              <ReactMarkdown>{prompt.response}</ReactMarkdown>
             </div>
           </div>
         ))}

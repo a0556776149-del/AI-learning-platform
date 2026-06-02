@@ -2,8 +2,12 @@ import { createPromptService, getPromptsByUserService } from "../services/prompt
 
 export const createPrompt = async (req, res) => {
   const { userId, categoryId, subCategoryId, prompt } = req.body;
-  const result = await createPromptService(userId, categoryId, subCategoryId, prompt);
-  res.status(201).json(result);
+  try {
+    const result = await createPromptService(userId, categoryId, subCategoryId, prompt);
+    res.status(201).json(result);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
 };
 
 export const getPromptsByUser = async (req, res) => {
