@@ -5,9 +5,12 @@ import type { Prompt } from "../types";
 import ReactMarkdown from "react-markdown";
 import "./HistoryPage.css";
 
+const PAGE_SIZE = 5;
+
 export default function HistoryPage() {
   const [prompts, setPrompts] = useState<Prompt[]>([]);
   const [loading, setLoading] = useState(true);
+  const [page, setPage] = useState(1);
   const navigate = useNavigate();
 
   const userId = Number(localStorage.getItem("userId"));
@@ -18,6 +21,9 @@ export default function HistoryPage() {
       .then(setPrompts)
       .finally(() => setLoading(false));
   }, []);
+
+  const totalPages = Math.ceil(prompts.length / PAGE_SIZE);
+  const paginatedPrompts = prompts.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
 
   return (
     <div className="history-container">
@@ -36,7 +42,7 @@ export default function HistoryPage() {
       )}
 
       <div className="prompts-list">
-        {prompts.map((prompt) => (
+        {paginatedPrompts.map((prompt) => (
           <div key={prompt.id} className="prompt-card">
             <div className="prompt-meta">
               <span className="category-badge">{prompt.category.name}</span>
@@ -53,6 +59,14 @@ export default function HistoryPage() {
           </div>
         ))}
       </div>
+
+      {totalPages > 1 && (
+        <div className="pagination">
+          <button onClick={() => setPage(p => p - 1)} disabled={page === 1} className="page-btn">← Prev</button>
+          <span className="page-info">{page} / {totalPages}</span>
+          <button onClick={() => setPage(p => p + 1)} disabled={page === totalPages} className="page-btn">Next →</button>
+        </div>
+      )}
     </div>
   );
 }

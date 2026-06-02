@@ -5,11 +5,14 @@ import type { User, Prompt } from "../types";
 import ReactMarkdown from "react-markdown";
 import "./AdminDashboardPage.css";
 
+const PAGE_SIZE = 5;
+
 export default function AdminDashboardPage() {
   const [users, setUsers] = useState<User[]>([]);
   const [selectedUser, setSelectedUser] = useState<User | null>(null);
   const [prompts, setPrompts] = useState<Prompt[]>([]);
   const [loading, setLoading] = useState(true);
+  const [page, setPage] = useState(1);
   const navigate = useNavigate();
 
   const token = localStorage.getItem("adminToken") ?? "";
@@ -22,6 +25,7 @@ export default function AdminDashboardPage() {
 
   const handleSelectUser = async (user: User) => {
     setSelectedUser(user);
+    setPage(1);
     const userPrompts = await getUserPrompts(user.id, token);
     setPrompts(userPrompts);
   };
@@ -30,6 +34,9 @@ export default function AdminDashboardPage() {
     localStorage.removeItem("adminToken");
     navigate("/admin/login");
   };
+
+  const totalPages = Math.ceil(prompts.length / PAGE_SIZE);
+  const paginatedPrompts = prompts.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
 
   return (
     <div className="admin-container">
@@ -62,7 +69,7 @@ export default function AdminDashboardPage() {
             <>
               <h2>{selectedUser.name}'s Prompts ({prompts.length})</h2>
               {prompts.length === 0 && <p>No prompts yet.</p>}
-              {prompts.map((prompt) => (
+              {paginatedPrompts.map((prompt) => (
                 <div key={prompt.id} className="prompt-card">
                   <div className="prompt-meta">
                     <span className="category-badge">{prompt.category.name}</span>
@@ -76,6 +83,14 @@ export default function AdminDashboardPage() {
                   </div>
                 </div>
               ))}
+
+              {totalPages > 1 && (
+                <div className="pagination">
+                  <button onClick={() => setPage(p => p - 1)} disabled={page === 1} className="page-btn">← Prev</button>
+                  <span className="page-info">{page} / {totalPages}</span>
+                  <button onClick={() => setPage(p => p + 1)} disabled={page === totalPages} className="page-btn">Next →</button>
+                </div>
+              )}
             </>
           )}
         </div>

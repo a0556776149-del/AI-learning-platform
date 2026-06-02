@@ -155,3 +155,4 @@ Frontend runs on: `http://localhost:5173`
 - TypeScript in frontend
 - User login (returning users)
 - Dark modern UI with glassmorphism design
+- Pagination in history and admin dashboard
