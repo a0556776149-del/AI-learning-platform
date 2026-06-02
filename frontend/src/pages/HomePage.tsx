@@ -58,6 +58,7 @@ export default function HomePage() {
           </div>
           <button onClick={() => navigate("/history")} className="nav-btn">My History</button>
           <button onClick={() => navigate("/admin/login")} className="nav-btn">Admin</button>
+          <button onClick={() => { localStorage.clear(); navigate("/"); }} className="nav-btn logout">Logout</button>
         </div>
       </div>
 
