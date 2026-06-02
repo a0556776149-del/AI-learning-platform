@@ -168,5 +168,13 @@
   padding: 14px;
   border-radius: 10px;
   border-left: 3px solid #6366f1;
-  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
+
+.prompt-response p { color: #cbd5e1; line-height: 1.8; }
+.prompt-response h1, .prompt-response h2, .prompt-response h3 { color: #a5b4fc; margin: 12px 0 6px; }
+.prompt-response ul, .prompt-response ol { padding-left: 20px; line-height: 1.8; }
+.prompt-response strong { color: #c4b5fd; }
+.prompt-response code { background: rgba(0,0,0,0.2); padding: 2px 6px; border-radius: 4px; }
+.prompt-response pre { white-space: pre-wrap; word-wrap: break-word; background: rgba(0,0,0,0.2); padding: 12px; border-radius: 8px; }
