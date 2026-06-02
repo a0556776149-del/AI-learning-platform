@@ -9,7 +9,7 @@ A full-stack mini MVP that allows users to select a category and sub-category, s
 **Backend:**
 - Node.js + Express 5
 - PostgreSQL + Prisma 7 ORM
-- Google Gemini AI API
+- OpenAI API (GPT-4o-mini)
 - JWT Authentication
 - Swagger / OpenAPI documentation
 - Docker (for local PostgreSQL)
@@ -139,7 +139,7 @@ Frontend runs on: `http://localhost:5173`
 - One admin exists, identified by a secret password stored in `.env`
 - Users are identified by phone number (unique)
 - Returning users can login with their phone number
-- AI responses are generated using Google Gemini 2.0 Flash
+- AI responses are generated using OpenAI GPT-4o-mini
 - AI prompt includes category and sub-category context for focused lessons
 
 ---

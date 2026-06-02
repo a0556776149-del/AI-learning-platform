@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { getCategories, getSubCategories, sendPrompt } from "../api";
 import type { Category, SubCategory } from "../types";
+import ReactMarkdown from "react-markdown";
 import "./HomePage.css";
 
 export default function HomePage() {
@@ -111,7 +112,7 @@ export default function HomePage() {
       {response && (
         <div className="response-box">
           <h3>AI Response:</h3>
-          <p>{response}</p>
+          <ReactMarkdown>{response}</ReactMarkdown>
         </div>
       )}
     </div>

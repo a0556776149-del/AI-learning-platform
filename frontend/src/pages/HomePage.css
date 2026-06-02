@@ -169,5 +169,36 @@
 .response-box p {
   color: #e2e8f0;
   line-height: 1.8;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.response-box pre {
   white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  background: rgba(0,0,0,0.2);
+  padding: 12px;
+  border-radius: 8px;
+}
+
+.response-box h1, .response-box h2, .response-box h3 {
+  color: #a5b4fc;
+  margin: 16px 0 8px;
+}
+
+.response-box ul, .response-box ol {
+  padding-left: 20px;
+  color: #e2e8f0;
+  line-height: 1.8;
+}
+
+.response-box strong {
+  color: #c4b5fd;
+}
+
+.response-box code {
+  background: rgba(0,0,0,0.2);
+  padding: 2px 6px;
+  border-radius: 4px;
 }
