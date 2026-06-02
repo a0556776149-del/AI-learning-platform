@@ -59,7 +59,11 @@ cd backend
 cp .env.example .env
 ```
 
-Fill in your values in `.env`.
+Fill in your values in `.env`:
+- `DATABASE_URL` - PostgreSQL connection string
+- `OPENAI_API_KEY` - Your OpenAI API key from [platform.openai.com](https://platform.openai.com)
+- `ADMIN_PASSWORD` - Password for the admin dashboard
+- `JWT_SECRET` - Secret key for JWT tokens
 
 ### 3. Start the database (Docker)
 
