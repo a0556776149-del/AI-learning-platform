@@ -1,6 +1,10 @@
 import { prisma } from "../lib/prisma.js";
 
 async function main() {
+  await prisma.prompt.deleteMany();
+  await prisma.subCategory.deleteMany();
+  await prisma.category.deleteMany();
+
   const science = await prisma.category.upsert({
     where: { name: "Science" },
     update: {},
